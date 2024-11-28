@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anotações</title>
+  <link rel="stylesheet" href="../styles/atonacoes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="formulario">
+    <div class="container-notation">
+      <header>
+        <h1>Anotações</h1>
+        <button id="createNoteBtn">+ Cadastrar Anotação</button>
+      </header>
+
+      <div class="notes-container" id="notesContainer">
+        <!-- anotações aqui -->
+      </div>
+    </div>
+
+    <!-- Modal anotação -->
+    <div id="noteModal-notation" class="modal">
+      <div class="modal-content-notation">
+        <span id="closeModal" class="close">&times;</span>
+        <h2 id="modalTitle-notation">Cadastrar Anotação</h2>
+        <form id="noteForm-notation">
+          <div class="input-part-notation">
+            <label for="noteTitle">Título da Anotação:</label>
+            <input type="text" id="noteTitle" name="noteTitle" required>
+          </div>
+          <div class="input-part-notation">
+            <label for="noteDate" class="noteDate">Data de Criação:</label>
+            <input type="date" id="noteDate" name="noteDate" required>
+          </div>
+          <div class="input-part-notation">
+            <label for="noteTask">Tarefa Associada:</label>
+            <input type="text" id="noteTask" name="noteTask">
+          </div>
+          <div class="input-part-notation">
+            <label for="notePriority">Prioridade:</label>
+            <select id="notePriority" name="notePriority" required>
+              <option value="Baixa">Baixa</option>
+              <option value="Média">Média</option>
+              <option value="Alta">Alta</option>
+            </select>
+          </div>
+          <div class="input-part-notation">
+            <label>Deseja resumir o texto?</label>
+            <div>
+              <label>
+                <input type="radio" name="summarizeText" value="true" required> Sim
+              </label>
+              <label>
+                <input type="radio" name="summarizeText" value="false"> Não
+              </label>
+            </div>
+          </div>
+          <div class="input-part-notation">
+            <label for="noteImage">Carregar Imagem:</label>
+            <input type="file" id="noteImage" name="noteImage" accept="image/*">
+          </div>
+          <div class="input-part-notation">
+            <label for="noteComment">Comentário:</label>
+            <textarea id="noteComment" name="noteComment" rows="4" cols="50"></textarea>
+          </div>
+          <button type="submit" id="saveNoteBtn">Salvar</button>
+          <button type="button" id="deleteNoteBtn" style="display: none;">Excluir</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal" id="noteModal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p><strong>Tarefa ID:</strong> <span id="modalTaskId"></span></p>
+        <p><strong>Data de Criação:</strong> <span id="modalDate"></span></p>
+        <p><strong>Texto:</strong> <span id="modalText"></span></p>
+        <p><strong>Conteudo Texto: </strong><span id="modalSumaryT"></span></p>
+        <p><strong>Conteúdo Resumo:</strong> <span id="modalSummary"></span></p>
+    </div>
+</div>
+
+<script src="../scripts/anotacoes.js"></script>
+</body>
+
+</html>

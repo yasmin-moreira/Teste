@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+</head>
+<body>
+    <h1>Upload Image to Python</h1>
+    <form id="uploadForm">
+        <input type="file" id="imageInput" name="image" accept="image/*" required>
+        <button type="submit">Send Image</button>
+    </form>
+
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            const imageFile = document.getElementById("imageInput").files[0];
+            formData.append("image", imageFile);
+
+            try {
+                const response = await fetch("http://localhost:5000/upload", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+                console.log(data); // Output do Python
+            } catch (error) {
+                console.error("Error uploading image:", error);
+            }
+        });
+    </script>
+</body>
+</html>
